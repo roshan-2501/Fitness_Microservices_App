@@ -26,8 +26,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="aiservice" />
-        <module name="eureka" />
         <module name="configserver" />
+        <module name="eureka" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -37,6 +38,7 @@
       <module name="aiservice" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>
   </component>
