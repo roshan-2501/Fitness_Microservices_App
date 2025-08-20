@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, FormControl, InputLabel, Select, MenuItem, TextField, Button } from '@mui/material';
+import { addActivity } from '../services/api';
 
 
 
@@ -13,7 +14,7 @@ const ActivityForm = ({ onActivityAdded }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            //await addActivity(activity); // addActivity is a function that sends the activity data to the server
+            await addActivity(activity); // addActivity is a function that sends the activity data to the server
             // Call the callback function to refresh the activity list
             onActivityAdded(); // This will trigger a reload of the activity list
             // Optionally, reset the form state
