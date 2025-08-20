@@ -1,4 +1,4 @@
-import { Button, Grid } from '@mui/material';
+import { Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { getActivities } from '../services/api';
@@ -33,15 +33,19 @@ const ActivityList = () => {
         <Grid container spacing={2}>
             {activities.map((activity) => (
                 <Grid item xs={12} sm={6} md={4} key={activity.id}>
-                    <div onClick={() => navigate(`/activities/${activity.id}`)}>
-                        <h3>{activity.type}</h3>
-                        <p>Duration: {activity.duration} minutes</p>
-                        <p>Calories Burned: {activity.caloriesBurned}</p>
-                    </div>
+                    <Card sx={{ cursor: 'pointer' }}
+                        onClick={() => navigate(`/activities/${activity.id}`)}>
+                        <CardContent>
+                            <Typography variant='h6'>{activity.type}</Typography>
+                            <Typography>Duration: {activity.duration}</Typography>
+                            <Typography>Calories: {activity.caloriesBurned}</Typography>
+                        </CardContent>
+                    </Card>
                 </Grid>
-            ))}
+            ))
+            }
             <Button variant="contained" onClick={fetchActivities}>Refresh Activities</Button>
-        </Grid>
+        </Grid >
     )
 }
 
